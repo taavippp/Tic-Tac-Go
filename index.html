@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Go!</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="Square.js"></script>
+    <script src="game.js" defer></script>
+    <script src="visualMode.js" defer></script>
+</head>
+<body>
+<h1 class="lightmode">Tic-Tac-Go!</h1>
+<div class="row" id="r-0">
+    <div class="square lightmode" id="s-00">?</div>
+    <div class="square lightmode" id="s-01">?</div>
+    <div class="square lightmode" id="s-02">?</div>
+</div>
+<div class="row" id="r-1">
+    <div class="square lightmode" id="s-10">?</div>
+    <div class="square lightmode" id="s-11" rotating-letter="">?</div>
+    <div class="square lightmode" id="s-12">?</div>
+</div>
+<div class="row" id="r-2">
+    <div class="square lightmode" id="s-20">?</div>
+    <div class="square lightmode" id="s-21">?</div>
+    <div class="square lightmode" id="s-22">?</div>
+</div>
+<div id="buttons">
+    <button id="starter" class="lightmode">Starter: X</button>
+    <button id="clear" class="lightmode">Restart</button>
+    <button id="visual-mode" class="lightmode">Use dark mode</button>
+</div>
+<button id="movement-mode">Movement: diagonal</button>
+</body>
+</html>
