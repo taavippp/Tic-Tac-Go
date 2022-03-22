@@ -26,9 +26,6 @@ const sideColCalcArray = [ 0,  1,  0, -1];
 function nextTurn(square) {
     isGameWon = checkGrid(square);
     if(isGameWon) {
-        squareArray.forEach(square => {
-            square.htmlElement.classList.add("gameWon");
-        })
         return;
     }
     if(!whoseTurn) {
@@ -45,33 +42,43 @@ function nextTurn(square) {
 function checkGrid(square) {
     const index = squareArray.indexOf(square);
     if(index % 2 == 0) {
-        if(checkLetters(0,4,8) || checkLetters(2,4,6)) {
+        if(checkLetters(0,4,8)) {
+            markWinners(0,4,8);
+            return true;
+        } else if(checkLetters(2,4,6)) {
+            markWinners(2,4,6);
             return true;
         }
     }
     if(square.colNum == 0) {
         if(checkLetters(0,3,6)) {
+            markWinners(0,3,6);
             return true;
         }
     } else if(square.colNum == 1) {
         if(checkLetters(1,4,7)) {
+            markWinners(1,4,7);
             return true;
         }
     } else if(square.colNum == 2) {
         if(checkLetters(2,5,8)) {
+            markWinners(2,5,8);
             return true;
         }
     }
     if(square.rowNum == 0) {
         if(checkLetters(0,1,2)) {
+            markWinners(0,1,2);
             return true;
         }
     } else if(square.rowNum == 1) {
         if(checkLetters(3,4,5)) {
+            markWinners(3,4,5);
             return true;
         }
     } else if(square.rowNum == 2) {
         if(checkLetters(6,7,8)) {
+            markWinners(6,7,8);
             return true;
         }
     }
@@ -86,6 +93,13 @@ function checkLetters(i, j, k) {
         return false;
     }
     return letterAtI == letterAtJ && letterAtJ == letterAtK;
+}
+
+function markWinners(i, j, k) {
+    squareArray[i].htmlElement.classList.add("gameWon");
+    squareArray[j].htmlElement.classList.add("gameWon");
+    squareArray[k].htmlElement.classList.add("gameWon");
+    return;
 }
 
 function markAvailableSquares() {
